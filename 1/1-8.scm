@@ -1,11 +1,10 @@
 ; input: n
-; output: sqrt of n
+; output: cbrt of n
 
-
-(define (sqrt-iter guess x)
+(define (cbrt-iter guess x)
     (if (good-enough? guess x)
         guess
-        (sqrt-iter 
+        (cbrt-iter 
             (improve guess x)
             x
         )
@@ -13,16 +12,18 @@
 )
 
 (define (improve guess x)
-    (average
-        guess 
-        (/ x guess)
-    )
-)
-
-(define (average x y)
-    (/ 
-        (+ x y)
-        2
+    (/
+        (+
+            (/
+                x
+                (square guess)
+            )
+            (*
+                guess
+                2
+            )
+        )
+        3
     )
 )
 
@@ -38,12 +39,16 @@
     )
 )
 
-(define (sqrt x)
-    (sqrt-iter
+(define (square x)
+    (* x x)
+)
+
+(define (cbrt x)
+    (cbrt-iter
         1.0
         x
     )
 )
 
-(display (sqrt (read)))
+(display (cbrt (read)))
 (newline)
