@@ -1,5 +1,5 @@
 ; input: b, n
-; output: b^n, theta(log n), iteration
+; output: b^n (theta(log n), iteration)
 
 (define (fast-expt b n)
     (fast-expt-iter 1 b n)
