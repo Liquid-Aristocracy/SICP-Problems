@@ -29,9 +29,12 @@
 (define (good-enough? guess x)
     (<  ;difference between this and next iter is small enough
         (abs
-            (- 
+            (/
+                (- 
+                    guess
+                    (improve guess x)
+                )
                 guess
-                (improve guess x)
             )
         )
         0.001
