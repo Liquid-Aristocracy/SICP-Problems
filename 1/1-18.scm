@@ -9,13 +9,6 @@
     (/ x 2)
 )
 
-(define (even? n)
-    (=
-        (remainder n 2)
-        0
-    )
-)
-
 (define (* a b)
     (iter-mul a b 0)
 )
