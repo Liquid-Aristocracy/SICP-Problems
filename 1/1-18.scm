@@ -1,5 +1,5 @@
 ; input: a, b
-; output: a*b (theta(log b), recursion)
+; output: a*b (theta(log b), iteration)
 
 (define (double x)
     (+ x x)
@@ -17,23 +17,24 @@
 )
 
 (define (* a b)
+    (iter-mul a b 0)
+)
+
+(define (iter-mul a b x)
     (cond
-        ((= b 0) 0)
+        ((= b 0) x)
         ((even? b)
-            (double
-                (*
-                    a
-                    (halve b)
-                )
+            (iter-mul
+                (double a)
+                (halve b)
+                x
             )
         )
         (else
-            (+
+            (iter-mul
                 a
-                (*
-                    a
-                    (- b 1)
-                )
+                (- b 1)
+                (+ x a)
             )
         )
     )
