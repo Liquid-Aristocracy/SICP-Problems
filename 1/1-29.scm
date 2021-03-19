@@ -38,5 +38,5 @@
     )
 )
 
-(display (simpson-integral cube 0 1 ()))
+(display (simpson-integral cube 0.0 1.0 ()))
 (newline)
