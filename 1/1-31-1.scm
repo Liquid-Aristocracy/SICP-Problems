@@ -1,5 +1,5 @@
 ; input: b
-; output: pi
+; output: pi, recursion
 
 (define (product term a next b)
     (if (> a b)

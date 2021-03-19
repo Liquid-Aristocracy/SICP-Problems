@@ -1,5 +1,5 @@
 ; input: b
-; output: pi
+; output: pi, iteration
 
 (define (product term a next b)
     (define (iter a result)
