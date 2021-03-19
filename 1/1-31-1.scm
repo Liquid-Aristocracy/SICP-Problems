@@ -1,4 +1,5 @@
-; input: 
+; input: b
+; output: pi
 
 (define (product term a next b)
     (if (> a b)
